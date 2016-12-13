@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "defaultSwitch": "CherryML",
+    "unitSize": 18
+  },
+  "layout": [
+    [
+      {
+        "legend": "esc"
+      },
+      {
+        "legend": "Q"
+      },
+      {
+        "legend": "W"
+      },
+      {
+        "legend": "E"
+      },
+      {
+        "legend": "R"
+      },
+      {
+        "legend": "T"
+      },
+      {
+        "legend": "Y"
+      }
+    ],
+    [
+      {
+        "legend": "tab",
+        "units": 1.25
+      },
+      {
+        "legend": "A"
+      },
+      {
+        "legend": "S"
+      },
+      {
+        "legend": "D"
+      }
+    ],
+    [
+      {
+        "legend": "shift",
+        "units": 1.75
+      },
+      {
+        "legend": "Z"
+      },
+      {
+        "legend": "X"
+      },
+      {
+        "legend": "C"
+      }
+    ],
+    [
+      {
+        "legend": "fn",
+        "units": 0.84
+      },
+      {
+        "legend": "ctrl",
+        "units": 1.25
+      },
+      {
+        "legend": "alt"
+      },
+      {
+        "legend": "cmd",
+        "units": 1.25
+      }
+    ]
+  ]
+}
