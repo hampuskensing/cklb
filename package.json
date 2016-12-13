@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/hampuskensing/cklb/issues"
   },
-  "homepage": "https://github.com/hampuskensing/cklb#readme"
+  "homepage": "https://github.com/hampuskensing/cklb#readme",
+  "devDependencies": {
+    "@types/node": "0.0.3",
+    "typescript": "^2.1.4"
+  }
 }
