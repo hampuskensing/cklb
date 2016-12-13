@@ -4,7 +4,7 @@
     "target": "es5",
     "noImplicitAny": true,
     "sourceMap": false,
-    "outFile": "build/index.js"
+    "outFile": "build/main.js"
   },
   "include": [
     "src/**/*.ts"
