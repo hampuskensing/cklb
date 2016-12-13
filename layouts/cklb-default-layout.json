@@ -25,6 +25,22 @@
       },
       {
         "legend": "Y"
+      },
+      {
+        "legend": "U"
+      },
+      {
+        "legend": "I"
+      },
+      {
+        "legend": "O"
+      },
+      {
+        "legend": "P"
+      },
+      {
+        "legend": "backspace",
+        "units": 1.5
       }
     ],
     [
@@ -40,6 +56,31 @@
       },
       {
         "legend": "D"
+      },
+      {
+        "legend": "F"
+      },
+      {
+        "legend": "G"
+      },
+      {
+        "legend": "H"
+      },
+      {
+        "legend": "J"
+      },
+      {
+        "legend": "K"
+      },
+      {
+        "legend": "L"
+      },
+      {
+        "legend": " "
+      },
+      {
+        "legend": " ",
+        "units": 1.25
       }
     ],
     [
@@ -55,12 +96,38 @@
       },
       {
         "legend": "C"
+      },
+      {
+        "legend": "V"
+      },
+      {
+        "legend": "B"
+      },
+      {
+        "legend": "N"
+      },
+      {
+        "legend": "M"
+      },
+      {
+        "legend": ","
+      },
+      {
+        "legend": "."
+      },
+      {
+        "legend": "up",
+        "units": 0.89
+      },
+      {
+        "legend": "shift",
+        "units": 0.89
       }
     ],
     [
       {
         "legend": "fn",
-        "units": 0.84
+        "units": 0.89
       },
       {
         "legend": "ctrl",
@@ -72,6 +139,34 @@
       {
         "legend": "cmd",
         "units": 1.25
+      },
+      {
+        "legend": "space",
+        "units": 1.75
+      },
+      {
+        "legend": "enter",
+        "units": 1.5
+      },
+      {
+        "legend": "fn2",
+        "units": 1.25
+      },
+      {
+        "legend": " ",
+        "units": 0.89
+      },
+      {
+        "legend": "left",
+        "units": 0.89
+      },
+      {
+        "legend": "down",
+        "units": 0.89
+      },
+      {
+        "legend": "right",
+        "units": 0.89
       }
     ]
   ]
