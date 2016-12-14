@@ -1,8 +1,8 @@
 import fs = require('fs');
 
-class LayoutFileReader {
+class JsonFileReader {
 
-  readLayoutFile(filePath: string): Promise<any> {
+  readJsonFile(filePath: string): Promise<any> {
     return new Promise((resolve: (result: any) => void, reject: (error: Error) => void) => {
       let onFileRead = (error: Error, rawLayout: string) => {
         if (error) {
@@ -17,4 +17,4 @@ class LayoutFileReader {
 
 }
 
-export = LayoutFileReader;
+export = JsonFileReader;
