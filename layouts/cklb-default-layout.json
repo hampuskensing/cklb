@@ -1,6 +1,6 @@
 {
   "meta": {
-    "defaultSwitch": "CherryML",
+    "defaultSwitchId": "cherryml",
     "unitSize": 18
   },
   "layout": [
