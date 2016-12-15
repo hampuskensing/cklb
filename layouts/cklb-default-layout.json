@@ -1,173 +1,167 @@
-{
-  "meta": {
-    "defaultSwitchId": "cherryml",
-    "unitSize": 18
-  },
-  "layout": [
-    [
-      {
-        "legend": "esc"
-      },
-      {
-        "legend": "Q"
-      },
-      {
-        "legend": "W"
-      },
-      {
-        "legend": "E"
-      },
-      {
-        "legend": "R"
-      },
-      {
-        "legend": "T"
-      },
-      {
-        "legend": "Y"
-      },
-      {
-        "legend": "U"
-      },
-      {
-        "legend": "I"
-      },
-      {
-        "legend": "O"
-      },
-      {
-        "legend": "P"
-      },
-      {
-        "legend": "backspace",
-        "units": 1.5
-      }
-    ],
-    [
-      {
-        "legend": "tab",
-        "units": 1.25
-      },
-      {
-        "legend": "A"
-      },
-      {
-        "legend": "S"
-      },
-      {
-        "legend": "D"
-      },
-      {
-        "legend": "F"
-      },
-      {
-        "legend": "G"
-      },
-      {
-        "legend": "H"
-      },
-      {
-        "legend": "J"
-      },
-      {
-        "legend": "K"
-      },
-      {
-        "legend": "L"
-      },
-      {
-        "legend": " "
-      },
-      {
-        "legend": " ",
-        "units": 1.25
-      }
-    ],
-    [
-      {
-        "legend": "shift",
-        "units": 1.75
-      },
-      {
-        "legend": "Z"
-      },
-      {
-        "legend": "X"
-      },
-      {
-        "legend": "C"
-      },
-      {
-        "legend": "V"
-      },
-      {
-        "legend": "B"
-      },
-      {
-        "legend": "N"
-      },
-      {
-        "legend": "M"
-      },
-      {
-        "legend": ","
-      },
-      {
-        "legend": "."
-      },
-      {
-        "legend": "up",
-        "units": 0.89
-      },
-      {
-        "legend": "shift",
-        "units": 0.89
-      }
-    ],
-    [
-      {
-        "legend": "fn",
-        "units": 0.89
-      },
-      {
-        "legend": "ctrl",
-        "units": 1.25
-      },
-      {
-        "legend": "alt"
-      },
-      {
-        "legend": "cmd",
-        "units": 1.25
-      },
-      {
-        "legend": "space",
-        "units": 1.75
-      },
-      {
-        "legend": "enter",
-        "units": 1.5
-      },
-      {
-        "legend": "fn2",
-        "units": 1.25
-      },
-      {
-        "legend": " ",
-        "units": 0.89
-      },
-      {
-        "legend": "left",
-        "units": 0.89
-      },
-      {
-        "legend": "down",
-        "units": 0.89
-      },
-      {
-        "legend": "right",
-        "units": 0.89
-      }
-    ]
+[
+  [
+    {
+      "legend": "esc"
+    },
+    {
+      "legend": "Q"
+    },
+    {
+      "legend": "W"
+    },
+    {
+      "legend": "E"
+    },
+    {
+      "legend": "R"
+    },
+    {
+      "legend": "T"
+    },
+    {
+      "legend": "Y"
+    },
+    {
+      "legend": "U"
+    },
+    {
+      "legend": "I"
+    },
+    {
+      "legend": "O"
+    },
+    {
+      "legend": "P"
+    },
+    {
+      "legend": "backspace",
+      "units": 1.5
+    }
+  ],
+  [
+    {
+      "legend": "tab",
+      "units": 1.25
+    },
+    {
+      "legend": "A"
+    },
+    {
+      "legend": "S"
+    },
+    {
+      "legend": "D"
+    },
+    {
+      "legend": "F"
+    },
+    {
+      "legend": "G"
+    },
+    {
+      "legend": "H"
+    },
+    {
+      "legend": "J"
+    },
+    {
+      "legend": "K"
+    },
+    {
+      "legend": "L"
+    },
+    {
+      "legend": " "
+    },
+    {
+      "legend": " ",
+      "units": 1.25
+    }
+  ],
+  [
+    {
+      "legend": "shift",
+      "units": 1.75
+    },
+    {
+      "legend": "Z"
+    },
+    {
+      "legend": "X"
+    },
+    {
+      "legend": "C"
+    },
+    {
+      "legend": "V"
+    },
+    {
+      "legend": "B"
+    },
+    {
+      "legend": "N"
+    },
+    {
+      "legend": "M"
+    },
+    {
+      "legend": ","
+    },
+    {
+      "legend": "."
+    },
+    {
+      "legend": "up",
+      "units": 0.89
+    },
+    {
+      "legend": "shift",
+      "units": 0.89
+    }
+  ],
+  [
+    {
+      "legend": "fn",
+      "units": 0.89
+    },
+    {
+      "legend": "ctrl",
+      "units": 1.25
+    },
+    {
+      "legend": "alt"
+    },
+    {
+      "legend": "cmd",
+      "units": 1.25
+    },
+    {
+      "legend": "space",
+      "units": 1.75
+    },
+    {
+      "legend": "enter",
+      "units": 1.5
+    },
+    {
+      "legend": "fn2",
+      "units": 1.25
+    },
+    {
+      "legend": " ",
+      "units": 0.89
+    },
+    {
+      "legend": "left",
+      "units": 0.89
+    },
+    {
+      "legend": "down",
+      "units": 0.89
+    },
+    {
+      "legend": "right",
+      "units": 0.89
+    }
   ]
-}
+]

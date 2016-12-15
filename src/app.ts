@@ -1,32 +1,23 @@
 import JsonFileReader = require('./json-file-reader');
+import path = require('path');
 
 class App {
 
   jsonReader: JsonFileReader = new JsonFileReader();
-  layoutJson: any;
-  switchJson: any;
   readonly PIXEL_TO_MM_RATIO: number = 72/19.05;
 
-  run() {
-    this.readLayoutFile()
-      .then(this.readSwitchFile.bind(this))
-      .then(this.createLayoutSvg.bind(this));
+  run(layoutFileName: string, switchFileName: string, unitSize: number): Promise<string> {
+    let readLayoutFilePromise = this.jsonReader.readJsonFile(layoutFileName);
+    let readSwitchFilePromise = this.jsonReader.readJsonFile(switchFileName);
+
+    let promises = [readLayoutFilePromise, readSwitchFilePromise];
+
+    return Promise.all(promises).then((jsons: any[]) => {
+      return this.createLayoutSvg(jsons[0], jsons[1], unitSize);
+    });
   }
 
-  readLayoutFile(): Promise<any> {
-    return this.jsonReader.readJsonFile('../layouts/cklb-default-layout.json')
-      .then(layoutJson => this.layoutJson = layoutJson);
-  }
-
-  readSwitchFile(): Promise<any> {
-    return this.jsonReader.readJsonFile('../switches/cherry-ml.json')
-      .then(switchJson => this.switchJson = switchJson);
-  }
-
-  createLayoutSvg() {
-    let layout: { legend: string, units?: number }[][] = this.layoutJson.layout;
-    let unitSize: number = this.layoutJson.meta.unitSize;
-
+  createLayoutSvg(layout: { legend: string, units?: number }[][], switchSpecification: any, unitSize: number) {
     let svgString =  `<svg xmlns="http://www.w3.org/2000/svg" width="260mm" height="80mm">\n`;
 
     for (let i = 0; i < layout.length; i++) {
@@ -36,22 +27,21 @@ class App {
       for (let j = 0; j < row.length; j++) {
         let key = row[j];
         svgString += `    <g name="${key.legend}" transform="translate(${currentTopX}, 0)">\n`;
-        svgString += this.createSwitchHoles(key);
+        svgString += this.createSwitchHoles(key, unitSize, switchSpecification);
         svgString += `    </g>\n`;
         currentTopX += (key.units || 1) * unitSize * this.PIXEL_TO_MM_RATIO;
       }
       svgString += `  </g>\n`;
     }
     svgString += '</svg>';
-    console.log(svgString);
+    return svgString;
   }
 
-  createSwitchHoles(key: { units?: number }): string {
-    let unitSize: number = this.layoutJson.meta.unitSize;
+  createSwitchHoles(key: { units?: number }, unitSize: number, switchJson: any): string {
     let result = '';
-    let holeTypes = this.switchJson.switchHoles;
-    let switchWidth = this.switchJson.width;
-    let switchHeight = this.switchJson.height;
+    let holeTypes = switchJson.switchHoles;
+    let switchWidth = switchJson.width;
+    let switchHeight = switchJson.height;
     for (let i = 0; i < holeTypes.length; i++) {
       let holeType = holeTypes[i];
       for (let j = 0; j < holeType.holes.length; j++) {
@@ -67,5 +57,18 @@ class App {
 
 }
 
+let args = process.argv.slice(2);
+if (args.length !== 3) {
+  console.error("Wrong number of parameters sent to cklb");
+  process.exit(1);
+}
+
+let cwd = process.cwd();
+let layoutFilePath = path.join(cwd, args[0]);
+let switchFilePath = path.join(cwd, args[1]);
+let unitSize = parseInt(args[2], 10);
+
 let app = new App();
-app.run();
+app.run(layoutFilePath, switchFilePath, unitSize).then((result: string) => {
+  console.log(result);
+});
