@@ -56,7 +56,8 @@ class LayoutBuilder {
           .att('r', `${holeType.diameter/2}mm`)
           .att('cx', `${((unit * unitSize) / 2) - (switchWidth/2) + hole.x + currentTopX}mm`)
           .att('cy', `${(unitSize / 2) - (switchHeight/2) + hole.y + currentTopY}mm`)
-          .att('fill', '#bbbbbb');
+          .att('fill', '#bbbbbb')
+          .att('for', key.legend);
         (<any>this.drillGroups[holeType.diameter + '']).importDocument(switchHoleEle);
       }
     }
