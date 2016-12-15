@@ -1,6 +1,6 @@
 {
   "name": "cklb",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "the custom keyboard layout builder",
   "main": "main.js",
   "scripts": {
