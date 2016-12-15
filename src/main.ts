@@ -3,7 +3,10 @@ import App = require('./app');
 
 let args = process.argv.slice(2);
 if (args.length !== 3) {
-  console.error("Wrong number of parameters sent to cklb");
+  console.error('Fatal exit [reason: wrong number of parameters sent to cklb]');
+  console.log(
+    'Example call:\n' +
+    'node main.js <path-to-layout> <path-to-switch-specification> <unitSize>\n');
   process.exit(1);
 }
 
