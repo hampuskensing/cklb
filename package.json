@@ -1,6 +1,6 @@
 {
   "name": "cklb",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "the custom keyboard layout builder",
   "main": "main.js",
   "scripts": {
@@ -23,6 +23,8 @@
   "homepage": "https://github.com/hampuskensing/cklb#readme",
   "devDependencies": {
     "@types/node": "0.0.3",
-    "typescript": "^2.1.4"
+    "@types/xmlbuilder": "0.0.28",
+    "typescript": "^2.1.4",
+    "xmlbuilder": "^8.2.2"
   }
 }
