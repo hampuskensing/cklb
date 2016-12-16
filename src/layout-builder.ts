@@ -1,20 +1,17 @@
 import builder = require('xmlbuilder');
 import XMLElementOrXMLNode = require('xmlbuilder');
+import SwitchSpecification = require('./types/switch-specification');
+import Layout = require('./types/layout');
 
 class LayoutBuilder {
 
-  readonly PIXEL_TO_MM_RATIO: number = 72/19.05;
+  readonly PIXEL_TO_MM_RATIO: number = 72/19.05; // Not used
   drillGroups: { [diameter: string]: any[] } = {};
 
-  createLayout(layout: { legend: string, units?: number }[][], switchSpecification: any, unitSize: number) {
-    let svg = builder.create('svg')
-      .att('xmlns', 'http://www.w3.org/2000/svg')
-      .att('width', '260mm')
-      .att('height', '80mm');
-
-    for (let holeType of switchSpecification.switchHoles) {
-      let groupName = holeType.diameter + '';
-      let group = (<any>builder).begin().ele('g', { name: groupName });
+  createLayout(layout: Layout, switchSpecification: SwitchSpecification, unitSize: number) {
+    for (let drillLayer of switchSpecification.drillLayers) {
+      let groupName = drillLayer.diameter + '';
+      let group = (<any>builder).begin().ele('g', { diameter: groupName, type: 'drillLayer' });
       this.drillGroups[groupName] = group;
     }
 
@@ -30,6 +27,11 @@ class LayoutBuilder {
       currentTopY += unitSize;
     }
 
+    let svg = builder.create('svg')
+      .att('xmlns', 'http://www.w3.org/2000/svg')
+      .att('width', '300mm')
+      .att('height', '100mm');
+
     for (let group in this.drillGroups) {
       if (this.drillGroups.hasOwnProperty(group)) {
         (<any>svg).importDocument(this.drillGroups[group]);
@@ -44,21 +46,23 @@ class LayoutBuilder {
                             currentTopY: number,
                             unitSize: number,
                             switchJson: any): any {
-    let holeTypes = switchJson.switchHoles;
+    let drillLayers = switchJson.drillLayers;
     let switchWidth = switchJson.width;
     let switchHeight = switchJson.height;
-    for (let i = 0; i < holeTypes.length; i++) {
-      let holeType = holeTypes[i];
-      for (let j = 0; j < holeType.holes.length; j++) {
+    for (let i = 0; i < drillLayers.length; i++) {
+      let drillLayer = drillLayers[i];
+      for (let j = 0; j < drillLayer.holes.length; j++) {
         let unit = key.units || 1;
-        let hole = holeType.holes[j];
+        let hole = drillLayer.holes[j];
+        let cx = Math.round((((unit * unitSize) / 2) - (switchWidth/2) + hole.x + currentTopX)*100)/100;
+        let cy = Math.round(((unitSize / 2) - (switchHeight/2) + hole.y + currentTopY)*100)/100;
         let switchHoleEle = builder.create('circle')
-          .att('r', `${holeType.diameter/2}mm`)
-          .att('cx', `${((unit * unitSize) / 2) - (switchWidth/2) + hole.x + currentTopX}mm`)
-          .att('cy', `${(unitSize / 2) - (switchHeight/2) + hole.y + currentTopY}mm`)
+          .att('r', `${drillLayer.diameter/2}mm`)
+          .att('cx', `${cx}mm`)
+          .att('cy', `${cy}mm`)
           .att('fill', '#bbbbbb')
           .att('for', key.legend);
-        (<any>this.drillGroups[holeType.diameter + '']).importDocument(switchHoleEle);
+        (<any>this.drillGroups[drillLayer.diameter + '']).importDocument(switchHoleEle);
       }
     }
   }
