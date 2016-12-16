@@ -59,6 +59,10 @@ class LayoutBuilder {
       .att('ry', 15)
       .att('fill', '#ccccb3')
       .att('stroke', '#b8b894');
+    this.keyCapGroup.ele('text', key.legend)
+      .att('x', 2+currentTopX+'mm')
+      .att('y', 6+currentTopY+'mm')
+      .att('font-size', 20);
   }
 
   createAndAppendDrillHoles(key: { units?: number, legend: string },
