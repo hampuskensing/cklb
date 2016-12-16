@@ -1,5 +1,4 @@
 import builder = require('xmlbuilder');
-import XMLElementOrXMLNode = require('xmlbuilder');
 import SwitchSpecification = require('./types/switch-specification');
 import Layout = require('./types/layout');
 
@@ -7,20 +6,22 @@ class LayoutBuilder {
 
   readonly PIXEL_TO_MM_RATIO: number = 72/19.05; // Not used
   drillGroups: { [diameter: string]: any[] } = {};
+  keyCapGroup: any;
 
   createLayout(layout: Layout, switchSpecification: SwitchSpecification, unitSize: number) {
     for (let drillLayer of switchSpecification.drillLayers) {
-      let groupName = drillLayer.diameter + '';
-      let group = (<any>builder).begin().ele('g', { diameter: groupName, type: 'drillLayer' });
-      this.drillGroups[groupName] = group;
+      let diameter = drillLayer.diameter + '';
+      let group = (<any>builder).begin().ele('g', { diameter: diameter, type: drillLayer.type });
+      this.drillGroups[diameter] = group;
     }
-
+    this.keyCapGroup = (<any>builder).begin().ele('g', { type: 'keyCaps' });
     let currentTopY = 0;
     for (let i = 0; i < layout.length; i++) {
       let row = layout[i];
       let currentTopX = 0;
       for (let j = 0; j < row.length; j++) {
         let key = row[j];
+        this.createAndAppendKeyCap(key, currentTopX, currentTopY, unitSize);
         this.createAndAppendDrillHoles(key, currentTopX, currentTopY, unitSize, switchSpecification);
         currentTopX += (key.units || 1) * unitSize;
       }
@@ -32,20 +33,39 @@ class LayoutBuilder {
       .att('width', '300mm')
       .att('height', '100mm');
 
+    (<any>svg).importDocument(this.keyCapGroup);
+
     for (let group in this.drillGroups) {
       if (this.drillGroups.hasOwnProperty(group)) {
         (<any>svg).importDocument(this.drillGroups[group]);
       }
     }
 
+
     return svg.end({ pretty: true });
+  }
+
+  createAndAppendKeyCap(key: { units?: number, legend: string },
+                        currentTopX: number,
+                        currentTopY: number,
+                        unitSize: number): void {
+    this.keyCapGroup.ele('rect')
+      .att('id', key.legend)
+      .att('x', currentTopX+'mm')
+      .att('y', currentTopY+'mm')
+      .att('width', ((key.units || 1) * unitSize)+'mm')
+      .att('height', unitSize+'mm')
+      .att('rx', 15)
+      .att('ry', 15)
+      .att('fill', '#ccccb3')
+      .att('stroke', '#b8b894');
   }
 
   createAndAppendDrillHoles(key: { units?: number, legend: string },
                             currentTopX: number,
                             currentTopY: number,
                             unitSize: number,
-                            switchJson: any): any {
+                            switchJson: any): void {
     let drillLayers = switchJson.drillLayers;
     let switchWidth = switchJson.width;
     let switchHeight = switchJson.height;
@@ -60,7 +80,7 @@ class LayoutBuilder {
           .att('r', `${drillLayer.diameter/2}mm`)
           .att('cx', `${cx}mm`)
           .att('cy', `${cy}mm`)
-          .att('fill', '#bbbbbb')
+          .att('fill', drillLayer.type === 'connector' ? '#e69900' : '#000000')
           .att('for', key.legend);
         (<any>this.drillGroups[drillLayer.diameter + '']).importDocument(switchHoleEle);
       }

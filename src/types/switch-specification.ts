@@ -5,6 +5,7 @@ interface Hole {
 
 interface DrillLayer {
   diameter: number;
+  type: string;
   holes: Hole[]; // Hole positions should be calculated from the top left corner of switch
 }
 

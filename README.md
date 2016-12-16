@@ -36,6 +36,7 @@ interface SwitchSpecification {
   name: string;
   width: number;
   height: number;
+  type: 'connector' | 'fastener',
   drillLayers: DrillLayer[]
 }
 
@@ -44,11 +45,13 @@ let exampleKeySwitch = {
   "width": 12,
   "height": 11.4,
   "drillLayers": [
-    { "diameter": 1.4, "holes": [{ "x": 0.92, "y": 1.27 },{ "x": 6, "y": 1.27 },{ "x": 11.08, "y": 1.27 } ]},
-    { "diameter": 1.5, "holes": [{ "x": 0.92, "y": 5.08 },{ "x": 6, "y": 10.16 },{ "x": 11.08, "y": 5.08 } ]},
-    { "diameter": 2.6, "holes": [{ "x": 6, "y": 5.08 }]}
+    { "type": "connector", "diameter": 1.4, "holes": [{ "x": 0.92, "y": 1.27 },{ "x": 6, "y": 1.27 },{ "x": 11.08, "y": 1.27 } ]},
+    { "type": "connector", "diameter": 1.5, "holes": [{ "x": 6, "y": 10.16 }]},
+    { "type": "fastener", "diameter": 1.5, "holes": [{ "x": 0.92, "y": 5.08 },{ "x": 11.08, "y": 5.08 }]},
+    { "type": "fastener", "diameter": 2.6, "holes": [{ "x": 6, "y": 5.08 }]}
   ]
 }
+
 ```
 ## Run
 ### Install
