@@ -4,38 +4,57 @@
       "legend": "esc"
     },
     {
-      "legend": "Q"
+      "legend": "Q",
+      "raise": "("
     },
     {
-      "legend": "W"
+      "legend": "W",
+      "raise": ")"
     },
     {
-      "legend": "E"
+      "legend": "E",
+      "raise": "\"  !  #"
     },
     {
-      "legend": "R"
+      "legend": "R",
+      "lower": "v_d"
     },
     {
-      "legend": "T"
+      "legend": "T",
+      "lower": "v_u"
     },
     {
-      "legend": "Y"
+      "legend": "Y",
+      "raise": "f10",
+      "lower": "0"
     },
     {
-      "legend": "U"
+      "legend": "U",
+      "lower": "1",
+      "raise": "f1"
     },
     {
-      "legend": "I"
+      "legend": "I",
+      "lower": "2",
+      "raise": "f2"
     },
     {
-      "legend": "O"
+      "legend": "O",
+      "lower": "3",
+      "raise": "f3"
     },
     {
       "legend": "P"
     },
     {
-      "legend": "backspace",
-      "units": 1.5
+      "legend": "=  +  -",
+      "lower": "_  *",
+      "raise": "¨  ^  ~",
+      "units": 0.875
+    },
+    {
+      "legend": "␈",
+      "units": 0.875
     }
   ],
   [
@@ -44,53 +63,76 @@
       "units": 1.25
     },
     {
-      "legend": "A"
+      "legend": "A",
+      "raise": "["
     },
     {
-      "legend": "S"
+      "legend": "S",
+      "raise": "]"
     },
     {
-      "legend": "D"
+      "legend": "D",
+      "raise": "@  $  %"
     },
     {
-      "legend": "F"
+      "legend": "F",
+      "lower": "prev"
     },
     {
-      "legend": "G"
+      "legend": "G",
+      "lower": "next"
     },
     {
-      "legend": "H"
+      "legend": "H",
+      "raise": "f11"
     },
     {
-      "legend": "J"
+      "legend": "J",
+      "lower": "4",
+      "raise": "f4"
     },
     {
-      "legend": "K"
+      "legend": "K",
+      "lower": "5",
+      "raise": "f5"
+
     },
     {
-      "legend": "L"
+      "legend": "L",
+      "lower": "6",
+      "raise": "f6"
     },
     {
-      "legend": " "
+      "legend": "'  /  \\",
+      "lower": "?  &  |"
     },
     {
-      "legend": " ",
-      "units": 1.25
+      "legend": "␍",
+      "units": 1.5
     }
   ],
   [
     {
       "legend": "shift",
-      "units": 1.75
+      "units": 0.875
     },
     {
-      "legend": "Z"
+      "legend": "<  >",
+      "lower": "lock",
+      "raise": "lock",
+      "units": 0.875
     },
     {
-      "legend": "X"
+      "legend": "Z",
+      "raise": "{"
     },
     {
-      "legend": "C"
+      "legend": "X",
+      "raise": "}"
+    },
+    {
+      "legend": "C",
+      "raise": "´ `"
     },
     {
       "legend": "V"
@@ -99,69 +141,77 @@
       "legend": "B"
     },
     {
-      "legend": "N"
+      "legend": "N",
+      "raise": "f12"
     },
     {
-      "legend": "M"
+      "legend": "M",
+      "lower": "7",
+      "raise": "f7"
     },
     {
-      "legend": ","
+      "legend": ",  ;",
+      "lower": "8",
+      "raise": "f8"
     },
     {
-      "legend": "."
+      "legend": ".  :",
+      "lower": "9",
+      "raise": "f9"
     },
     {
       "legend": "up",
-      "units": 0.89
+      "lower": "pg_u"
     },
     {
-      "legend": "shift",
-      "units": 0.89
+      "legend": "shift"
     }
   ],
   [
     {
-      "legend": "fn",
-      "units": 0.89
+      "legend": "lower",
+      "color": "#40a4f7"
     },
     {
       "legend": "ctrl",
+      "lower": "expl"
+    },
+    {
+      "legend": "alt",
       "units": 1.25
+    },
+    {
+      "legend": "cmd"
+    },
+    {
+      "legend": "",
+      "lower": "mute",
+      "units": 1.75
+    },
+    {
+      "legend": "",
+      "raise": "play/pause",
+      "units": 1.5
+    },
+    {
+      "legend": "raise",
+      "units": 1.25,
+      "color": "#f74058"
     },
     {
       "legend": "alt"
     },
     {
-      "legend": "cmd",
-      "units": 1.25
-    },
-    {
-      "legend": "space",
-      "units": 1.75
-    },
-    {
-      "legend": "enter",
-      "units": 1.5
-    },
-    {
-      "legend": "fn2",
-      "units": 1.25
-    },
-    {
-      "legend": " ",
-      "units": 0.89
-    },
-    {
       "legend": "left",
-      "units": 0.89
+      "lower": "home"
     },
     {
       "legend": "down",
-      "units": 0.89
+      "lower": "pg_d"
     },
     {
       "legend": "right",
-      "units": 0.89
+      "lower": "end"
     }
   ]
 ]
