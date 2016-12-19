@@ -8,7 +8,7 @@ class LayoutBuilder {
   drillGroups: { [diameter: string]: any[] } = {};
   keyCapGroup: any;
 
-  createLayout(layout: Layout, switchSpecification: SwitchSpecification, unitSize: number) {
+  createLayout(layout: Layout, switchSpecification: SwitchSpecification, unitSize: number, preview?: boolean) {
     for (let drillLayer of switchSpecification.drillLayers) {
       let diameter = drillLayer.diameter + '';
       let group = (<any>builder).begin().ele('g', { diameter: diameter, type: drillLayer.type });
@@ -21,8 +21,11 @@ class LayoutBuilder {
       let currentTopX = 0;
       for (let j = 0; j < row.length; j++) {
         let key = row[j];
-        this.createAndAppendKeyCap(key, currentTopX, currentTopY, unitSize);
-        this.createAndAppendDrillHoles(key, currentTopX, currentTopY, unitSize, switchSpecification);
+        if (preview) {
+          this.createAndAppendKeyCap(key, currentTopX, currentTopY, unitSize);
+        } else {
+          this.createAndAppendDrillHoles(key, currentTopX, currentTopY, unitSize, switchSpecification);
+        }
         currentTopX += (key.units || 1) * unitSize;
       }
       currentTopY += unitSize;
@@ -45,7 +48,7 @@ class LayoutBuilder {
     return svg.end({ pretty: true });
   }
 
-  createAndAppendKeyCap(key: { units?: number, legend: string },
+  createAndAppendKeyCap(key: { units?: number, legend: string, lower: string, raise: string, color: string },
                         currentTopX: number,
                         currentTopY: number,
                         unitSize: number): void {
@@ -57,11 +60,21 @@ class LayoutBuilder {
       .att('height', unitSize+'mm')
       .att('rx', 15)
       .att('ry', 15)
-      .att('fill', '#ccccb3')
+      .att('fill', key.color ? key.color : '#ccccb3')
       .att('stroke', '#b8b894');
     this.keyCapGroup.ele('text', key.legend)
       .att('x', 2+currentTopX+'mm')
-      .att('y', 6+currentTopY+'mm')
+      .att('y', 5+currentTopY+'mm')
+      .att('font-size', 20);
+    this.keyCapGroup.ele('text', key.lower)
+      .att('fill', '#40a4f7')
+      .att('x', 2+currentTopX+'mm')
+      .att('y', 11+currentTopY+'mm')
+      .att('font-size', 20);
+    this.keyCapGroup.ele('text', key.raise)
+      .att('fill', '#f74058')
+      .att('x', 2+currentTopX+'mm')
+      .att('y', 17+currentTopY+'mm')
       .att('font-size', 20);
   }
 
