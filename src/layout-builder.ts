@@ -12,7 +12,7 @@ class LayoutBuilder {
     for (let drillLayer of switchSpecification.drillLayers) {
       let diameter = drillLayer.diameter + '';
       let group = (<any>builder).begin().ele('g', { diameter: diameter, type: drillLayer.type });
-      this.drillGroups[diameter] = group;
+      this.drillGroups[diameter+drillLayer.type] = group;
     }
     this.keyCapGroup = (<any>builder).begin().ele('g', { type: 'keyCaps' });
     let currentTopY = 0;
@@ -48,10 +48,13 @@ class LayoutBuilder {
     return svg.end({ pretty: true });
   }
 
-  createAndAppendKeyCap(key: { units?: number, legend: string, lower: string, raise: string, color: string },
+  createAndAppendKeyCap(key: { units?: number, legend: string, lower: string, raise: string, color: string, type?: string },
                         currentTopX: number,
                         currentTopY: number,
                         unitSize: number): void {
+    if (key.type === 'spacer') {
+      return;
+    }
     this.keyCapGroup.ele('rect')
       .att('id', key.legend)
       .att('x', currentTopX+'mm')
@@ -78,11 +81,14 @@ class LayoutBuilder {
       .att('font-size', 20);
   }
 
-  createAndAppendDrillHoles(key: { units?: number, legend: string },
+  createAndAppendDrillHoles(key: { units?: number, legend: string, type?: string },
                             currentTopX: number,
                             currentTopY: number,
                             unitSize: number,
                             switchJson: any): void {
+    if (key.type === 'spacer') {
+      return;
+    }
     let drillLayers = switchJson.drillLayers;
     let switchWidth = switchJson.width;
     let switchHeight = switchJson.height;
@@ -99,7 +105,7 @@ class LayoutBuilder {
           .att('cy', `${cy}mm`)
           .att('fill', drillLayer.type === 'connector' ? '#e69900' : '#000000')
           .att('for', key.legend);
-        (<any>this.drillGroups[drillLayer.diameter + '']).importDocument(switchHoleEle);
+        (<any>this.drillGroups[drillLayer.diameter + drillLayer.type]).importDocument(switchHoleEle);
       }
     }
   }
