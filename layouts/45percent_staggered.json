@@ -1,0 +1,178 @@
+[
+  [
+    {
+      "units": 0.5,
+      "type": "spacer"
+    },
+    {
+      "legend": "esc"
+    },
+    {
+      "legend": "Q"
+    },
+    {
+      "legend": "W"
+    },
+    {
+      "legend": "E"
+    },
+    {
+      "legend": "R"
+    },
+    {
+      "legend": "T"
+    },
+    {
+      "legend": "Y"
+    },
+    {
+      "legend": "U"
+    },
+    {
+      "legend": "I"
+    },
+    {
+      "legend": "O"
+    },
+    {
+      "legend": "P"
+    },
+    {
+      "legend": "Å"
+    },
+    {
+      "legend": "backspace"
+    }
+  ],
+  [
+    {
+      "units": 0.75,
+      "type": "spacer"
+    },
+    {
+      "legend": "tab"
+    },
+    {
+      "legend": "A"
+    },
+    {
+      "legend": "S"
+    },
+    {
+      "legend": "D"
+    },
+    {
+      "legend": "F"
+    },
+    {
+      "legend": "G"
+    },
+    {
+      "legend": "H"
+    },
+    {
+      "legend": "J"
+    },
+    {
+      "legend": "K"
+    },
+    {
+      "legend": "L"
+    },
+    {
+      "legend": "Ö"
+    },
+    {
+      "legend": "Ä"
+    },
+    {
+      "legend": "* '"
+    }
+  ],
+  [
+    {
+      "units": 0.25,
+      "type": "spacer"
+    },
+    {
+      "legend": "l_s"
+    },
+    {
+      "legend": "<  >"
+    },
+    {
+      "legend": "Z"
+    },
+    {
+      "legend": "X"
+    },
+    {
+      "legend": "C"
+    },
+    {
+      "legend": "V"
+    },
+    {
+      "legend": "B"
+    },
+    {
+      "legend": "N"
+    },
+    {
+      "legend": "M"
+    },
+    {
+      "legend": ","
+    },
+    {
+      "legend": "."
+    },
+    {
+      "legend": "-"
+    },
+    {
+      "legend": "r_s"
+    }
+  ],
+  [
+    {
+      "legend": "fn"
+    },
+    {
+      "legend": "ctrl"
+    },
+    {
+      "legend": "alt"
+    },
+    {
+      "legend": "cmd"
+    },
+    {
+      "legend": "fn"
+    },
+    {
+      "legend": "space"
+    },
+    {
+      "legend": "enter"
+    },
+    {
+      "legend": "fn"
+    },
+    {
+      "legend": "alt"
+    },
+    {
+      "legend": "left"
+    },
+    {
+      "legend": "right"
+    },
+    {
+      "legend": "up"
+    },
+    {
+      "legend": "down"
+    }
+  ]
+]
